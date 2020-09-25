@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Blog 2: Setting up a Test Environment for DevOps Team"
+---
+
+I feel a bit ridiculous talking about this since I'm still in the process of wrapping my head around Agile sprints and DevOps processes. It helps that Dr. Kaplan told us that it's a good thing that the whole class is absolutely lost, seeing that apparently this is how sprints are *supposed* to be like.
+
+That being said, I've decided to take a short break from the unholy trinity of JS, PHP, and markup, and dipped my toes into actually setting up an online test/deployment environment for our website/application. Since the dev team is still waiting for the development of the database schema, I wanted to make it as easy as possible for the team to be able to not only view the product visually, but contribute simply by secure shelling into the instance that I put up. While we already have a Git repo set up for the project, I felt that this might be helpful (since we had to do it anyway).
+
+The process of setting up the EC2 instance was actually quite simple. I decided to make use of the AMI Linux image offered by AWS, and I went through the simple process of setting up a LAMP stack within that instance. The instance is not password protected. Instead, we have made use of a private/public key pair to SSH in.
+
+### Issues to fix
+
+While logging in with a public key makes sense, and provides decent security, there's always the chance that they key could end up in the wrong hands if any of the 5 users using it don't protect it properly. Because of this, I wanted to see if I could apply a password in addition to key authentication, but each time I used *passwd* to set a new password for the *ec2-user* account, I was able to log in without entering anything. This is something that will have to be fixed.
+
+I am also having some trouble figuring out how to allow each of the 5 users to sign into the instance with their own user account. I wrote a script to create accounts for all 5 users (along with /home folders and the necessary setting), because this creates a sense of accountability for all users. It's also common sense if you're using any type of shared environment. I've tried using *keygen* to create a new key pair for each user, but I am not sure how I can make this work since each user is still required to use the public key for the instance. A **possible** solution would be to run a script at the standard login as *ec2-user*, and force the user to sign into their user account immediately afterward.
+
+Lastly, I would like to start learning about the database hosting services on AWS, seeing that hosting the database server on the same machine as a web server is bad practice. Since this is mainly just a test environment, I'm not too worried about it for now. If anything, this will probably be covered in the lecture this upcoming Saturday.
