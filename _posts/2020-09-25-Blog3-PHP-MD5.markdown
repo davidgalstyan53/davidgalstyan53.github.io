@@ -1,0 +1,33 @@
+---
+layout: post
+title: "Blog 3: Can I Finish my 484 Project Using MD5 Hashing?"
+---
+
+In a previous blog I referenced one of my old COMP484 projects. Just to refresh our memory, the project was to build a simple user login/registration website with a LAMP stack. Each user would have a username field, along with a password field.
+
+The issue that I ran into was that I could not correctly hash the passwords for each created user, meaning that the passwords were stored in plain text. **Not Good**
+
+I was able to hash the passwords, but was unable to provide successful logins for the users. Because this was a Summer class and we were short on time, this portion of the assignment was offered as extra credit. Right now, I'm going to try and see how I can implement an MD5 hash for the passwords while being able to set up a successful login.
+
+Here is some reference code from Webslesson :
+
+    $dbhandle = mysqli_connect("localhost", "admin", "", "users");
+    $username = mysqli_escape_string($connect, $_POST["username"]);
+    $password = mysqli_escape_string($connect, $_POST["password"]);
+    $password = md5($password);
+
+    $insertSQL = "INSERT INTO users (username, password) VALUES ('$username' , '$password')"
+
+    mysqli_query($dbhandle, $insertSQL);
+
+This would be the one way hashing method. If you are unfamiliar with PHP, we are assigning our MySQL DB info to $dbhandle, taking the username and password entered by the users with the POST method, and assigning them to variables, and then using the md5 function to hash the $password variable. The last step is assigning the insert statement into a variable, then performing the MySQL query to insert the values into our database. Pretty simple so far.
+
+After looking at this, I realized that my mistake was incredibly stupid. Please consider this next block of code.
+
+  $username = mysqli_escape_string($connect, $_POST["username"]);
+  $password = mysqli_escape_string($connect, $_POST["password"]);
+
+  $checkUser = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+  mysqli_query($connect, $checkUser);
+
+I'm definitely kicking myself after this one. I forgot ONE line of code. Before the query, I needed to encrypt the $password variable again before attempting to perform the query to check for a match. Such an incredibly simple process, made 10x more difficult by a simpleton such as myself. Of course, the last line of code would include an "if" statement checking to see if the number of matches are equal to 1. If equal to one, the user has been confirmed, and login will be granted. Remember kids...RTFM (I will leave the interpretation of that to you, lol) before you jump into something new. The mistakes you're making are probably not that difficult to correct.
