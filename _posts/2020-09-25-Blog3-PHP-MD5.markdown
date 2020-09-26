@@ -24,10 +24,10 @@ This would be the one way hashing method. If you are unfamiliar with PHP, we are
 
 After looking at this, I realized that my mistake was incredibly stupid. Please consider this next block of code.
 
-  $username = mysqli_escape_string($connect, $_POST["username"]);
-  $password = mysqli_escape_string($connect, $_POST["password"]);
+    $username = mysqli_escape_string($connect, $_POST["username"]);
+    $password = mysqli_escape_string($connect, $_POST["password"]);
 
-  $checkUser = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-  mysqli_query($connect, $checkUser);
+    $checkUser = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    mysqli_query($connect, $checkUser);
 
 I'm definitely kicking myself after this one. I forgot ONE line of code. Before the query, I needed to encrypt the $password variable again before attempting to perform the query to check for a match. Such an incredibly simple process, made 10x more difficult by a simpleton such as myself. Of course, the last line of code would include an "if" statement checking to see if the number of matches are equal to 1. If equal to one, the user has been confirmed, and login will be granted. Remember kids...RTFM (I will leave the interpretation of that to you, lol) before you jump into something new. The mistakes you're making are probably not that difficult to correct.
