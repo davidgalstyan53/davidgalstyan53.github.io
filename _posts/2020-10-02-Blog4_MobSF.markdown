@@ -10,3 +10,22 @@ Thankfully, there was a lot of crossover between mobile security, and computer s
 During my research, I found a malware analysis tool called the **Mobile Security Framework**, also known as MobSF. To put it simply, while the tool decompiles all apks (Android apps) and allows us to analyze it's code, it allows those who aren't proficient Java programmers to analyze an application with it's dashboard options. Once an apk is uploaded, decompiled, and analyzed by the tool, you'll be greeted by a dashboard like the following:
 
 ![MobSF Dash](https://user-images.githubusercontent.com/4301109/76472502-1f6df700-63cc-11ea-9ac0-fca99327e47d.png)
+
+Sections like *Activities*, *Services*, *Receivers*, and *Providers* are just some of the key sections that are detected and extracted to make it simple for the user to analyze the behavior of the application. *Activities*, for example, are derived from the XML manifest file, which states all the permissions needed and functions that the application is scheduled to perform. 
+
+While I can't post the lab here (I don't want to be yelled at by my former employer), I can suggest a lab idea to get anybody started off with Mob SF. The lab that I created had the user perform the following:
+
+1. Download a legitimate APK file
+2. Make a copy of the file
+3. Use Metasploit (MSFVenom) to inject a reverse tcp payload into the 2nd copy
+4. Separately upload both APK's for static analysis
+5. Observe any differences between the applications
+
+It may be better to try on your own, but here are a few things a user would look for (just some hints):
+
+- What are the permissions requested by the original application? What about the new one?
+- What are some reasons why an application that normally wouldn't need texting capabilities require SMS permissions? Or even camera permissions?
+- Where any obfuscation tools detected?
+- Are there any receivers and/or providers detected?
+
+For anybody looking to start out in the realm of mobile malware analysis, MobSF is a great way to start. In fact, there are some things that weren't covered in this post. There is also a *Dynamic Analysis* feature, as opposed to a static analysis. This means if you have a rooted Android device, you are able to run vulnerable applications on your phone, and analyze in real time. An interesting feature is the logcat feature that you can pull up in MobSF (assuming that you already know how to direct the output of logcat to a file and filter out activities via scripting). Also, any CVE's (common vulnerabilities and exposures) that are detected by the application are listed post-analysis. Overall, it's a very intersting tool whether you're a beginner or not.
