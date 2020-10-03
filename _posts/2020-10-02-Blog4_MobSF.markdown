@@ -7,4 +7,4 @@ I spent a bit of time reflecting on some of the things I learned at my last inte
 
 Thankfully, there was a lot of crossover between mobile security, and computer security. One thing in particular that we didn't cover in depth in the previous class was the concept of malware analysis. We used the Metasploit Framework to inject payloads into .exe's in order to open a reverse TCP shell, but we never really analyzed the malware itself. 
 
-During my research, I found a malware analysis tool called the **Mobile Security Framework**, better known as MobSF.
+During my research, I found a malware analysis tool called the **Mobile Security Framework**, also known as MobSF. To put it simply, while the tool decompiles all apks (Android apps) and allows us to analyze it's code, it allows those who aren't proficient Java programmers to analyze an application with it's dashboard options. Once an apk is uploaded, decompiled, and analyzed by the tool, you'll be greeted by a dashboard like the following (taken from the MobSF
