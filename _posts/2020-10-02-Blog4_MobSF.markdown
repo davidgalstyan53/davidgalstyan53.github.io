@@ -5,3 +5,6 @@ title: "Blog 4: Mobile Security Framework (MobSF)"
 
 I spent a bit of time reflecting on some of the things I learned at my last internship. The bulk of my time spent there related to the development and QA of mobile security and pentesting labs. Going into my internship, I knew little to nothing about mobile device security. The depth of my computer security knowledge at the time stemmed from an Introduction to Cybersecurity and Ethical Hacking course offered at GCC, which was actually taught by a CSUN/Layer 8 alum (*sheds tear of approval*). While the class covered the basics such as Linux system permissions, LAN and WAN security measures, and basic attacks (think dictionary and brute forcing), we never really covered mobile security.
 
+Thankfully, there was a lot of crossover between mobile security, and computer security. One thing in particular that we didn't cover in depth in the previous class was the concept of malware analysis. We used the Metasploit Framework to inject payloads into .exe's in order to open a reverse TCP shell, but we never really analyzed the malware itself. 
+
+During my research, I found a malware analysis tool called the **Mobile Security Framework**, better known as MobSF.
