@@ -9,4 +9,4 @@ Thankfully, there was a lot of crossover between mobile security, and computer s
 
 During my research, I found a malware analysis tool called the **Mobile Security Framework**, also known as MobSF. To put it simply, while the tool decompiles all apks (Android apps) and allows us to analyze it's code, it allows those who aren't proficient Java programmers to analyze an application with it's dashboard options. Once an apk is uploaded, decompiled, and analyzed by the tool, you'll be greeted by a dashboard like the following:
 
-[MobSF Dash](https://user-images.githubusercontent.com/4301109/76472502-1f6df700-63cc-11ea-9ac0-fca99327e47d.png)
+![MobSF Dash](https://user-images.githubusercontent.com/4301109/76472502-1f6df700-63cc-11ea-9ac0-fca99327e47d.png)
