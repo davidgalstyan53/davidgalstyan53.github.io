@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Blog 6: Meeting Mr. Nikto"
+---
+
+For those unfamiliar with the concept of penetration testing, fear not, as it's actually fairly simple. Company XYZ has a company network set up at one of their local offices. This local office has sensitive information located within the network, perhaps a database contain personally identifiable information (PII) regarding their customers. If this information were to get into the wrong hands, it could result in a disasterous scenario for all the customers involved, and almost certainly for Company XYZ. Because of this, Company XYZ invests money to make sure that their network and systems are secure. One service that they can utilize is that of a penetration testing service. 
+
+A penetration test is essentially when a company gives a hacker (or team of hackers) written permission to test the security of their company's systems and networks. Many times these penetration tests are very specific, meaning that a company will want a penetration tester to attempt to hack into a specific part of their network. A detailed report is given to the point of contact within the company, typically in management, and adjustments are made afterward. This post will be a very quick introduction to one of the types of tools that are considered to be essential for performing effective network penetration tests.
+
+Vulnerability scanners allow pentesters to perform reconaissance on a target. This is where our little buddy, Nikto, comes into play. Nikto is specifically a web server vulnerability scanner, meaning that one could target public websites or servers that are facing the public. If we are going to try and find holes in a web server, we are going to make use of a tool like Nikto to get us started.
+
+I believe Nikto already comes pre-installed on Kali Linux, but you should be able to install it on a vanilla Ubuntu system with a simple:
+    $ sudo apt-get install nikto
+    
+If you are a Mac user, you're in luck. If you have Homebrew installed already, all you need to enter in your terminal is:
+    $ brew install nikto
+    
