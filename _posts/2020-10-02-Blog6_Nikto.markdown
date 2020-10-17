@@ -10,10 +10,14 @@ A penetration test is essentially when a company gives a hacker (or team of hack
 Vulnerability scanners allow pentesters to perform reconaissance on a target. This is where our little buddy, Nikto, comes into play. Nikto is specifically a web server vulnerability scanner, meaning that one could target public websites or servers that are facing the public. If we are going to try and find holes in a web server, we are going to make use of a tool like Nikto to get us started.
 
 I believe Nikto already comes pre-installed on Kali Linux, but you should be able to install it on a vanilla Ubuntu system with a simple:
-    $ sudo apt-get install nikto
+    ```console
+		$ sudo apt-get install nikto
+		```
 
 If you are a Mac user, you're in luck. If you have Homebrew installed already, all you need to enter in your terminal is:
-	  $ brew install nikto
+		```console
+		$ brew install nikto
+		```
 
 In order to get started using Nikto, here are some tips:
 1. You will need a target. An IP address or sever name (if applicable) work just fine.
@@ -26,7 +30,9 @@ The most basic format for a command initiating a Nikto scan will follow these co
 3. hostname (IP or webserver name)
 
 When we put those together, we will get something like this:
-    $ nikto -h 192.168.1.129
+		```console
+		$ nikto -h 192.168.1.129
+		```
 
 In my case, since my MAMP server serves on port 8888, my hostname would include the entire socket, so I would enter **192.168.1.129:8888**
 
