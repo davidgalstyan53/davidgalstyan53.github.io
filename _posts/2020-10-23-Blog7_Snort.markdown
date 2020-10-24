@@ -6,7 +6,8 @@ title: "Blog 7: Installing and Configuring Snort"
 Since we dabbled a bit into the realm of network vulnerability scanning, I thought it would be fitting to learn about a local monitoring tool. More specifically, I'll be covering an Intrusion Detection System (IDS for short). The IDS is called Snort. For this blog post, I'll be using Ubuntu, although you can use it for any Linux distro (be aware of which package manager your distro uses).
 
 Getting started is pretty simple. Enter the following command to start the installation process:
-    ```console
+    		
+		```
 		$ sudo apt-get install nikto
 		```
 
@@ -16,7 +17,7 @@ You will then need to use CIDR notation to enter the address range for your loca
 
 As a general rule, you should open the "snort.conf" configuration file and make a small change. Open "/etc/snort/snort.conf", navigate to "ipvar HOME_NET any", and change "any" to the IP address of the machine you are trying to protect (the ip of the interface you are using). Then you can test out your configuration with:
 
-		```console
+		```
 		$ sudo snort -A console -i <YOUR INTERFACE> -c /etc/snort/snort.conf
 		```
 
