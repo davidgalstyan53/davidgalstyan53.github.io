@@ -7,9 +7,8 @@ Since we dabbled a bit into the realm of network vulnerability scanning, I thoug
 
 Getting started is pretty simple. Enter the following command to start the installation process:
     		
-		```
 		$ sudo apt-get install nikto
-		```
+		
 
 There is a chance that you will be greeted with a purple "Package Configuration" screen at some point during the installation. This will ask you to specify which network interface you want Snort to listen in on. The default value will be "eth0", but yours may differ. For simplicity's sake, let's just take the default network interface that your Linux machine is using to access the public internet. A simple "ifconfig" will list all of your interfaces, as well as the IP's that are associated with them. In my case, I want to use the wifi adapter that the system is using, and this one happens to be "wifi0".
 
@@ -17,8 +16,7 @@ You will then need to use CIDR notation to enter the address range for your loca
 
 As a general rule, you should open the "snort.conf" configuration file and make a small change. Open "/etc/snort/snort.conf", navigate to "ipvar HOME_NET any", and change "any" to the IP address of the machine you are trying to protect (the ip of the interface you are using). Then you can test out your configuration with:
 
-		```
 		$ sudo snort -A console -i <YOUR INTERFACE> -c /etc/snort/snort.conf
-		```
+		
 
 Next blog entry will be a little more in depth. At the moment I only have access to my WSL Ubuntu machine, and apparently that does not play very well with Snort. We will go over how to use Snort next week.
