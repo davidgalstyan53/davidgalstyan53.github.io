@@ -13,6 +13,18 @@ Here are a couple of prerequisites for installing GRV (I will be doing this on m
 1. You will need Homebrew installed
 2. You will also need Go installed
 3. Afterward, enter the following command to install readline and cmake with Homebrew:
-        $ brew install readline pkg-config cmake
 
-If you are using a Linux distro, the same rules apply. 
+		$ brew install readline pkg-config cmake
+
+If you are using a Linux distro, the same rules apply. You can use other methods, but this would be easiest.
+
+In order to get started, navigate to the local directory for your desired pulled github repo. For the purposes of testing, mine would be "/Users/david/go/src/github.com/davidgalstyan53/davidgalstyan53.github.io"
+
+Once inside the directory of our desired repo, enter the following command:
+		
+		$ grv
+		
+GRV by default will look in the current directory for a github repo. You can also enter the path to your repo as an argument. If I were to do that in this case, it would be:
+		$ grv /Users/david/go/src/github.com/davidgalstyan53/davidgalstyan53.github.io
+		
+The cool thing about GRV is that it uses VIM keybindings, so VIM users should feel right at home (yes, I said non CLI-ppl would like this as well...sue me). I'm still playing around with it, but it seems like this is a nifty little tool to use. I HATE using Github via CLI, but funny enough, I prefer using CLI for most other tasks. I feel like this program is a nice middle-ground. Try it out for yourself!
