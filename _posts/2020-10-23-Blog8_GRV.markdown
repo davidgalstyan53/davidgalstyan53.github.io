@@ -8,3 +8,11 @@ Admittedly, this blog post won't be super technical. However, we're just over mi
 I did, however, find a new tool that I will be using to explore github repos. The tool is called GRV, or Git Repository Viewer. This will essentially give us an awesome CLI tool to explore Github with, but gives us a more usable interface to work with (at least for those who are uncomfortable with CLI). To give you an idea, you will end up with something like this:
 
 [![MuhPic](https://raw.githubusercontent.com/rgburke/grv/master/doc/grv-history-view.png)]
+
+Here are a couple of prerequisites for installing GRV (I will be doing this on my Mac):
+1. You will need Homebrew installed
+2. You will also need Go installed
+3. Afterward, enter the following command to install readline and cmake with Homebrew:
+        $ brew install readline pkg-config cmake
+
+If you are using a Linux distro, the same rules apply. 
