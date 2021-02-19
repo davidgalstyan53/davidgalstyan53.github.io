@@ -34,6 +34,6 @@ The Python script reads as follows:
 			print("Password : " + "".join(guess_password))
 			break
 
-
+Essentially what's happening is that the user is being asked to enter a password, and the program, with it's dictionary of a-z and 0-9 characters will iterate between different combinations of characters from the list based on the password's length. In a way, this is kind of cheating because the program already knows the length of the password, but it's my first time looking at something like this, so yeah.
 	
 	
