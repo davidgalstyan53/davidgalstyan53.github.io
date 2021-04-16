@@ -14,3 +14,4 @@ In order to keep things simple, you can keep the Jenkins address to localhost:80
 
 After inputting your user info, you'll be greeted with the Jenkins dashboard. Now, I have no idea how to use Jenkins at the moment. But now that we have Jenkins installed and running, I'll be able to play around and see what I can come up with for next week's blog.
 
+Oh, and if you're a Windows user and want to install Jenkins, here's some advice: don't.
