@@ -1,0 +1,47 @@
+---
+layout: post
+title: "Blog 6: Meeting Mr. Nikto"
+---
+
+For those unfamiliar with the concept of penetration testing, fear not, as it's actually fairly simple. Company XYZ has a company network set up at one of their local offices. This local office has sensitive information located within the network, perhaps a database contain personally identifiable information (PII) regarding their customers. If this information were to get into the wrong hands, it could result in a disasterous scenario for all the customers involved, and almost certainly for Company XYZ. Because of this, Company XYZ invests money to make sure that their network and systems are secure. One service that they can utilize is that of a penetration testing service.
+
+A penetration test is essentially when a company gives a hacker (or team of hackers) written permission to test the security of their company's systems and networks. Many times these penetration tests are very specific, meaning that a company will want a penetration tester to attempt to hack into a specific part of their network. A detailed report is given to the point of contact within the company, typically in management, and adjustments are made afterward. This post will be a very quick introduction to one of the types of tools that are considered to be essential for performing effective network penetration tests.
+
+Vulnerability scanners allow pentesters to perform reconaissance on a target. This is where our little buddy, Nikto, comes into play. Nikto is specifically a web server vulnerability scanner, meaning that one could target public websites or servers that are facing the public. If we are going to try and find holes in a web server, we are going to make use of a tool like Nikto to get us started.
+
+I believe Nikto already comes pre-installed on Kali Linux, but you should be able to install it on a vanilla Ubuntu system with a simple:
+    ```console
+		$ sudo apt-get install nikto
+		```
+
+If you are a Mac user, you're in luck. If you have Homebrew installed already, all you need to enter in your terminal is:
+		```console
+		$ brew install nikto
+		```
+
+In order to get started using Nikto, here are some tips:
+1. You will need a target. An IP address or sever name (if applicable) work just fine.
+2. DO NOT TARGET ANY SERVERS UNLESS YOU EITHER OWN THEM, OR HAVE EXPLICIT PERMISSION FROM THEM IN WRITING (sorry for yelling, just drank 2 Red Bulls)
+3. A local MAMP or XAMPP server (which I'll be using) work just fine for testing purposes
+
+The most basic format for a command initiating a Nikto scan will follow these conventions:
+1. nikto (program name)
+2. -h (option indicating "hostname")
+3. hostname (IP or webserver name)
+
+When we put those together, we will get something like this:
+		```console
+		$ nikto -h 192.168.1.129
+		```
+
+In my case, since my MAMP server serves on port 8888, my hostname would include the entire socket, so I would enter **192.168.1.129:8888**
+
+I encourage you to go ahead and read whatever output you get (assuming the scan is successful), and interpret the results for yourself. I, for example, got quite a few interesting results:
+- "Server: Apache/2.2.34"
+	- Web server type and version identified
+- "/login.php: Admin login page/section found"
+	- It looks like my login script for the website that I'm hosting on my MAMP server was detected by the scan
+- "CVE-2002-0082, OSVDB-756"
+	- It looks like I'm using a depricated OpenSSL module on my server that can be exploited via a remote buffer overflow
+
+I would recommend taking some time to look at the man page to find out what other options are available, but this should be enough to get you started with Nikto.
